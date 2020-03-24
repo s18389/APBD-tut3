@@ -11,10 +11,17 @@ namespace tut3.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
-        [HttpGet]
-        public string GetStudent()
+        [HttpGet("{id}")]
+        public IActionResult GetStudent(int id)
         {
-            return "Michalski, Nasirov, Sim";
+            if(id == 1)
+            {
+                return Ok("Michalski");
+            }else if (id == 2)
+            {
+                return Ok("Nasirov");
+            }
+            return NotFound("Student not found!");
         }
 
     }
