@@ -24,5 +24,12 @@ namespace tut3.Controllers
             return NotFound("Student not found!");
         }
 
+        [HttpGet]
+        public string GetStudents(string orderBy)
+        { 
+            return $"Michalski, Nasirov, Sim sorting={orderBy}";
+           
+        }
+
     }
 }
