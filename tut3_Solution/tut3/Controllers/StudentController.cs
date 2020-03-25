@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using tut3.DAL;
+using tut3.Models;
 
 namespace tut3.Controllers
 {
@@ -11,6 +13,13 @@ namespace tut3.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
+        private readonly IServiceDB _serviceDB;
+
+        public StudentController(IServiceDB serviceDB)
+        {
+            _serviceDB = serviceDB;
+        }
+        
         [HttpGet("{id}")]
         public IActionResult GetStudent(int id)
         {
@@ -24,11 +33,40 @@ namespace tut3.Controllers
             return NotFound("Student not found!");
         }
 
+        /*
         [HttpGet]
         public string GetStudents(string orderBy)
         { 
             return $"Michalski, Nasirov, Sim sorting={orderBy}";
            
+        }
+        */
+
+
+        [HttpPost]
+        public IActionResult CreateStudent(Student student)
+        {
+            student.IndexNumber = $"s{new Random().Next(1, 30000)}";
+            return Ok(student);
+
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult deleteStudent(int id)
+        {
+            return Ok($"Delete {id}");
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult updateStudent(int id)
+        {
+            return Ok($"Update {id}");
+        }
+
+        [HttpGet]
+        public IActionResult GetStudents(string orderBy)
+        {
+            return Ok(_serviceDB.GetStudents());
         }
 
     }
