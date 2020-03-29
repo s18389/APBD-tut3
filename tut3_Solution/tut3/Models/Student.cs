@@ -20,9 +20,13 @@ namespace tut3.Models
 
         }
 
+
         public int IdStudent { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string IndexNumber { get; set; }
+        //Tut 4
+        public DateTime BirthDate { get; set; }
+        public int IdEnrollment { get; set; }
     }
 }
