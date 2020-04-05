@@ -57,6 +57,7 @@ namespace tut3.Controllers
             return Ok($"Delete {id}");
         }
 
+
         [HttpPut("{id}")]
         public IActionResult updateStudent(int id)
         {
@@ -75,7 +76,6 @@ namespace tut3.Controllers
                 {
                     command.Connection = sqlConnection;
                     command.CommandText = "SELECT * FROM Student;";
-
                     sqlConnection.Open();
                     var reader = command.ExecuteReader();
                     while (reader.Read())
@@ -88,7 +88,6 @@ namespace tut3.Controllers
                         student.IdEnrollment = Int32.Parse(reader["IdEnrollment"].ToString());
                         listOfStudents.Add(student);
                     }
-
                 }
             }
 

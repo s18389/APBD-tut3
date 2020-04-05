@@ -4,8 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace tut3.Models
+{
 
-   // Tut4
+    // Tut4
     public class Enrollment
     {
         public Enrollment()
@@ -20,3 +21,4 @@ namespace tut3.Models
 
     }
 
+}

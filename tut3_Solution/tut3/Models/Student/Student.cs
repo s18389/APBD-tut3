@@ -20,7 +20,6 @@ namespace tut3.Models
 
         }
 
-
         public int IdStudent { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -28,5 +27,7 @@ namespace tut3.Models
         //Tut 4
         public DateTime BirthDate { get; set; }
         public int IdEnrollment { get; set; }
+        //Tut 5
+        public string Studies { get; set; }
     }
 }
